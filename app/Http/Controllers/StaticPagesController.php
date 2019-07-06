@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class StaticPagesController extends Controller
 {
-    //
+    //返回几个静态页面
     public function home()
     {
         return view('static_pages/home');
