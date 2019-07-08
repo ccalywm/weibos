@@ -22,7 +22,7 @@ class SessionsController extends Controller
 
         if (Auth::attempt($create_user)){
             //登陆成功
-            session()->flash('sussess','欢迎回来');
+            session()->flash('success','欢迎回来');
             return redirect()->route('users.show',[Auth::user()]);
         } else {
             //登陆失败
@@ -30,5 +30,13 @@ class SessionsController extends Controller
             return redirect()->back()->withInput();
         }
 
+    }
+    
+    //注销登陆
+    public function destroy()
+    {
+        Auth::logout();
+        session()->flash('success','您已成功退出！');
+        return redirect('login');
     }
 }
