@@ -90,4 +90,13 @@ class UsersController extends Controller
         session()->flash('success','修改成功，若修改了密码则下次登录时生效！');
         return redirect()->route('users.show',$user->id);
     }
+
+    //删除用户
+    public function destroy(User $user)
+    {
+        $this->authorize('destroy',$user);
+        $user->delete($user->id);
+        session()->flash('success','成功删除用户：'.$user->name);
+        return back();
+    }
 }
