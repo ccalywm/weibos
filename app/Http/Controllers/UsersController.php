@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use Auth;
 class UsersController extends Controller
 {
     //
@@ -37,6 +37,7 @@ class UsersController extends Controller
         ]);
 
         //写入完成之后返回用户页面并且提示
+        Auth::login($user);
         session()->flash('success','欢迎注册，您将在这里开启一度新的旅程');
         return redirect()->route('users.show',[$user]);
     }

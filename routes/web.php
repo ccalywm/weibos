@@ -34,3 +34,10 @@ Route::get('/signup','UsersController@create')->name('signup');
  */
 Route::resource('users','UsersController');
 
+/*
+ * 会话控制器
+ */
+Route::get('login','SessionsController@create')->name('login');
+Route::post('login','SessionsController@store')->name('login');
+Route::delete('login','SessionsController@destroy')->name('logout');
+
