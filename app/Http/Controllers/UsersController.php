@@ -41,4 +41,31 @@ class UsersController extends Controller
         session()->flash('success','欢迎注册，您将在这里开启一度新的旅程');
         return redirect()->route('users.show',[$user]);
     }
+
+    //编辑用户资料界面
+    public function edit(User $user)
+    {
+        return view('users.edit',compact('user'));
+    }
+    //更新用户资料
+    public function update(Request $request,User $user)
+    {
+        //验证输入
+        $this->validate($request,[
+            'name' => 'required|max:50',
+            'password' => 'nullable|confirmed|min:3',
+        ]);
+        $data = [];
+        $data['name'] = $request->name;
+        if ($request->password){
+            $data['password'] = bcrypt($request->password);
+        }
+
+        //调用update方法进行更新
+        $user->update($data);
+
+        //更新完成之后返回用户主页
+        session()->flash('success','修改成功，若修改了密码则下次登录时生效！');
+        return redirect()->route('users.show',$user->id);
+    }
 }
