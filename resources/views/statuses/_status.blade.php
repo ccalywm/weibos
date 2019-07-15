@@ -4,6 +4,9 @@
     </a>
     <div class="media-body">
         <h5 class="mt-0 mb-1">{{ $user->name }} <small> / {{ $status->created_at->diffForHumans() }}</small></h5>
-        {{ $status->content }}
+        <p>类型：{{ $status->title }}</p>
+        <p>金额：{{ $status->jine }}</p>
+        <p>备注：{{ $status->content }}</p>
+        <p>时间：{{ $status->time }}</p>
     </div>
 </li>

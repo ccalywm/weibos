@@ -58,8 +58,19 @@ class User extends Authenticatable
         });
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * 指定每个用户可以拥有多个微博
+     */
     public function statuses()
     {
         return $this->hasMany(Status::class);
     }
+
+    public function feed()
+    {
+        return $this->statuses()
+            ->orderBy('created_at','desc');
+    }
+
 }
