@@ -22,6 +22,7 @@ class StatusesController extends Controller
            'jine'    => 'required',
            'time'    => 'required',
            'content' => 'required|max:140',
+            'type'   => 'required',
         ]);
 
         Auth::user()->statuses()->create([
@@ -29,6 +30,7 @@ class StatusesController extends Controller
             'title'   => $request['title'],
             'jine'    => $request['jine'],
             'time'    => $request['time'],
+            'type'    => $request['type'],
         ]);
 
         session()->flash('success','发布成功！');

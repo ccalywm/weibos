@@ -16,6 +16,7 @@ class CreateStatusesTable extends Migration
         Schema::create('statuses', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');//收入&&支出
+            $table->string('type');//分类//生活用品//数码产品//通讯费用
             $table->integer('jine');//金额
             $table->text('content');//备注
             $table->date('time');//时间

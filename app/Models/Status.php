@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Status extends Model
 {
-
-    protected $fillable = ['title','jine','content','time'];
+    //允许更新的字段
+    protected $fillable = ['title','jine','content','time','type',];
 
     public function user()
     {
