@@ -7,7 +7,8 @@
 {{--    <textarea class="form-control" rows="1" placeholder="类型..." name="title">{{ old('content') }}</textarea>--}}
     <textarea class="form-control" rows="2" placeholder="金额..." name="jine">{{ old('content') }}</textarea>
     <textarea class="form-control" rows="2" placeholder="备注..." name="content">{{ old('content') }}</textarea>
-    <textarea class="form-control" rows="2" placeholder="日期..." name="time" type="data">{{ old('content') }}</textarea>
+{{--    <textarea class="form-control" rows="2" placeholder="日期..." name="time" type="date">{{ old('content') }}</textarea>--}}
+    <label> <input class="form-control" placeholder="日期..." name="time" type="date"> {{ old('content') }}</label>
 
 
     <div class="text-right">

@@ -18,7 +18,7 @@ class CreateStatusesTable extends Migration
             $table->string('title');//收入&&支出
             $table->integer('jine');//金额
             $table->text('content');//备注
-            $table->time('time');//时间
+            $table->date('time');//时间
             $table->integer('user_id')->index();
             $table->index(['created_at']);
             $table->timestamps();
