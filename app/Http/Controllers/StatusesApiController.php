@@ -9,12 +9,27 @@ use Illuminate\Support\Facades\Auth;
 
 class StatusesApiController extends Controller
 {
+    //获取微博个人所有微博
+    public function index(Request $request)
+    {
+       $statuses = $request->user()->statuses()
+           ->orderBy('created_at','desc')
+           ->get();
+//        ->paginate(10);
+       return $statuses;
+    }
+    
+    //获取单条微博
+    public function show(Request $request)
+    {
+        return $request;
+    }
     //发布微博
     public function store(Request $request)
     {
-        $data = $request->user();
-
-
+        /**
+         * 尚未验证输入 很危险
+         */
 
         $result = $request->user()->statuses()->create([
             'content' => $request['content'],
@@ -23,6 +38,6 @@ class StatusesApiController extends Controller
             'time'    => $request['time'],
             'type'    => $request['type'],
         ]);
-        return $data.$result;
+        return $result;
     }
 }

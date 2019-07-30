@@ -12,8 +12,8 @@ Route::post('login', 'Auth\LoginController@login');
 
 
 Route::group(['middleware' => 'auth:api'], function() {
-    Route::get('articles', 'ArticleController@index');
-    Route::get('articles/{article}', 'ArticleController@show');
+    Route::get('articles', 'StatusesApiController@index');
+    Route::get('articles/{article}', 'StatusesApiController@show');
     Route::post('articles', 'StatusesApiController@store');
     Route::put('articles/{article}', 'ArticleController@update');
     Route::delete('articles/{article}', 'ArticleController@delete');
