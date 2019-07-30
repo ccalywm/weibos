@@ -22,7 +22,47 @@ class StatusesApiController extends Controller
     //获取单条微博
     public function show(Request $request)
     {
-        return $request;
+        $data = $request->name;
+        $result = Status::find($data);
+        return $result;
+    }
+
+    //编辑微博
+    public function update(Request $request)
+    {
+        $id = $request->name;
+//        $updates = [];
+//        if ($request->title){
+//            $updates['title'] = $request->title;
+//        }else if ($request->type){
+//            $updates['type'] = $request['type'];
+//        }else if ($request->jine){
+//            $updates['jine'] = $request['jine'];
+//        }else if ($request['content']){
+//            $updates['content'] = $request['content'];
+//        }else if ($request->time){
+//            $updates['time'] = $request['time'];
+//        }
+
+        $data = Status::find($id);
+        $data['title'] = $request->title;
+        $data['type'] = $request['type'];
+        $data['jine'] = $request['jine'];
+        $data['content'] = $request['content'];
+        $data['time'] = $request['time'];
+        $data->save();
+
+        return $data;
+    }
+
+    //删除微博
+    public function delete(Request $request)
+    {
+        $id = $request->name;
+        $result = Status::destroy($id);
+        return $result;
+
+
     }
     //发布微博
     public function store(Request $request)

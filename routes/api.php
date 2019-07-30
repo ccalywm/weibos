@@ -12,9 +12,9 @@ Route::post('login', 'Auth\LoginController@login');
 
 
 Route::group(['middleware' => 'auth:api'], function() {
-    Route::get('articles', 'StatusesApiController@index');
-    Route::get('articles/{article}', 'StatusesApiController@show');
-    Route::post('articles', 'StatusesApiController@store');
-    Route::put('articles/{article}', 'ArticleController@update');
-    Route::delete('articles/{article}', 'ArticleController@delete');
+    Route::get('statuses', 'StatusesApiController@index');
+    Route::get('statuses/{name}', 'StatusesApiController@show');
+    Route::post('statuses', 'StatusesApiController@store');
+    Route::put('statuses/{name}', 'StatusesApiController@update');
+    Route::delete('statuses/{name}', 'StatusesApiController@delete');
 });
