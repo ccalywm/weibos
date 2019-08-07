@@ -18,7 +18,7 @@ class StatusesApiController extends Controller
 //        ->paginate(10);
        return $statuses;
     }
-    
+
     //获取单条微博
     public function show(Request $request)
     {
@@ -46,10 +46,10 @@ class StatusesApiController extends Controller
 
         $data = Status::find($id);
         $data['title'] = $request->title;
-        $data['type'] = $request['type'];
-        $data['jine'] = $request['jine'];
+//        $data['type'] = $request['type'];
+//        $data['jine'] = $request['jine'];
         $data['content'] = $request['content'];
-        $data['time'] = $request['time'];
+//        $data['time'] = $request['time'];
         $data->save();
 
         return $data;
@@ -74,9 +74,9 @@ class StatusesApiController extends Controller
         $result = $request->user()->statuses()->create([
             'content' => $request['content'],
             'title'   => $request['title'],
-            'jine'    => $request['jine'],
-            'time'    => $request['time'],
-            'type'    => $request['type'],
+//            'jine'    => $request['jine'],
+//            'time'    => $request['time'],
+//            'type'    => $request['type'],
         ]);
         return $result;
     }
