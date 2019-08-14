@@ -11,7 +11,10 @@ class StatusesController extends Controller
     //中间件过滤 登录用户才可以访问
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
+        $this->middleware('auth',[
+            'except' => ['store','destroy']
+        ]);
     }
 
     //发布微博

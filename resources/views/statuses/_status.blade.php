@@ -4,11 +4,11 @@
     </a>
     <div class="media-body">
         <h5 class="mt-0 mb-1">{{ $user->name }} <small> / {{ $status->created_at->diffForHumans() }}</small></h5>
-        <p>收支：{{ $status->title }}</p>
-        <p>分类：{{ $status->type }}</p>
-        <p>金额：{{ $status->jine }}</p>
-        <p>备注：{{ $status->content }}</p>
-        <p>时间：{{ $status->time }}</p>
+        <p>标题：{{ $status->title }}</p>
+{{--        <p>分类：{{ $status->type }}</p>--}}
+{{--        <p>金额：{{ $status->jine }}</p>--}}
+        <p>内容：{{ $status->content }}</p>
+{{--        <p>时间：{{ $status->time }}</p>--}}
     </div>
 
     @can('destroy', $status)
